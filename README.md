@@ -28,16 +28,25 @@ class PublicController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(): Response
     {
+        // appel de la vue sans variables
         return $this->render('public/index.html.twig', [
         ]);
     }
 
-    #[Route('/article/{id<\d+>}',
+    #[Route(
+        // chemin URL
+        path: '/article/{id}',
+        // nom
         name: 'article',
+        // on demande que l'id soit un entier positif
+        requirements: ['id' => '\d+'],
+        // si l'ID n'est pas présent, on lui donne une valeur par défaut
         defaults: ['id' => 1],
+        // on utilise uniquement la méthode get
         methods: ['GET'])]
     public function article(int $id): Response
     {
+        // appel de la vue avec la variable idarticle contenant $id
         return $this->render('public/article.html.twig', [
             'idarticle' => $id,
         ]);
@@ -70,7 +79,7 @@ templates/public/menu.html.twig
 
 ```php
 <nav class="">
-    <a href="{{ path('homepage') }}">Accueil</a> | <a href="{{ path('article') }}">Article 1</a> | <a href="{{ path('article',{'id':2}) }}">Article 2</a>
+    <a href="{{ path('homepage') }}">Accueil</a> | <a href="{{ path('article') }}">Article 1</a> | <a href="{{ path('article',{'id':2}) }}">Article 2</a>  | <a href="{{ path('article',{'id':3}) }}">Article 3</a> | <a href="/article/lulu">Article lulu (interdit)</a>
 </nav>
 ```
 

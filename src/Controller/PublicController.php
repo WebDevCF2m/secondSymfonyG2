@@ -15,8 +15,10 @@ class PublicController extends AbstractController
         ]);
     }
 
-    #[Route('/article/{id<\d+>}',
+    #[Route(
+        path: '/article/{id}',
         name: 'article',
+        requirements: ['id' => '\d+'],
         defaults: ['id' => 1],
         methods: ['GET'])]
     public function article(int $id): Response
