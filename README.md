@@ -12,6 +12,13 @@ created: src/Controller/PublicController.php
 
 created: templates/public/index.html.twig
 
+### Lancement du serveur
+
+    symfony serve -d
+
+https://127.0.0.1:8000
+
+
 ### Modification du contrôleur
 
 ```php
