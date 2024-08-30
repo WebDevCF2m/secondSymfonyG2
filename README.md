@@ -86,7 +86,10 @@ templates/public/menu.html.twig
 
 ```php
 <nav class="">
-    <a href="{{ path('homepage') }}">Accueil</a> | <a href="{{ path('article') }}">Article 1</a> | <a href="{{ path('article',{'id':2}) }}">Article 2</a>  | <a href="{{ path('article',{'id':3}) }}">Article 3</a> | <a href="/article/lulu">Article lulu (interdit)</a>
+    <a href="{{ path('homepage') }}">Accueil</a> | <a href="{{ path('article') }}">Article 1</a>
+    | <a href="{{ path('article',{'id':2}) }}">Article 2</a>
+    | <a href="{{ path('article',{'id':3}) }}">Article 3</a>
+    | <a href="/article/lulu">Article lulu (interdit)</a>
 </nav>
 ```
 
